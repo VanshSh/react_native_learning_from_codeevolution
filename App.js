@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Learning React Native from Code Evolution.</Text>
-      <StatusBar style="auto" />
+      <StatusBar style="auto" backgroundColor='red' barStyle="dark-content"  />
     </View>
   );
 }
