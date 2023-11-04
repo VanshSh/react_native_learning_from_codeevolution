@@ -5,6 +5,8 @@ import {
   StyleSheet,
   Text,
   View,
+  Alert,
+  Button,
   ActivityIndicator,
 } from 'react-native'
 
@@ -18,6 +20,9 @@ export default function App() {
       }}
     >
       <View>
+        <ActivityIndicator size='large' color='red' animating />
+      </View>
+      <View>
         <Text
           style={{
             flexDirection: 'row',
@@ -27,9 +32,21 @@ export default function App() {
         >
           Hello World!
         </Text>
-      </View>
-      <View>
-        <ActivityIndicator size="large" color="red" animating />
+        <Button
+          title='Alert'
+          onPress={() =>
+            Alert.alert('Invalid data', 'Data Incorrext', [
+              {
+                text: 'Cancel',
+                onPress: () => console.log('Canceled pressed'),
+              },
+              {
+                text: 'OK',
+                onPress: () => console.log('Ok pressed'),
+              },
+            ])
+          }
+        />
       </View>
     </View>
   )
