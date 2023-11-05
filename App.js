@@ -9,6 +9,7 @@ import {
   Button,
   ActivityIndicator,
 } from 'react-native'
+import Greet from './components/Greet'
 
 export default function App() {
   return (
@@ -48,6 +49,8 @@ export default function App() {
           }
         />
       </View>
+      <Greet name="Vansh Sharma"/>
+      <Greet name="Himanshu Sharma"/>
     </View>
   )
 }
