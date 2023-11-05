@@ -1,62 +1,17 @@
-import { StatusBar } from 'expo-status-bar'
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  Button,
-  ActivityIndicator,
-} from 'react-native'
-import Greet from './components/Greet'
+
+import { StyleSheet, View } from 'react-native'
+import StylingRN from './components/StylingRN'
 
 export default function App() {
   return (
-    <View
-      style={{
-        flexDirection: 'column',
-        height: 100,
-        padding: 25,
-      }}
-    >
-      <View>
-        <ActivityIndicator size='large' color='red' animating />
-      </View>
-      <View>
-        <Text
-          style={{
-            flexDirection: 'row',
-            height: 100,
-            padding: 30,
-          }}
-        >
-          Hello World!
-        </Text>
-        <Button
-          title='Alert'
-          onPress={() =>
-            Alert.alert('Invalid data', 'Data Incorrext', [
-              {
-                text: 'Cancel',
-                onPress: () => console.log('Canceled pressed'),
-              },
-              {
-                text: 'OK',
-                onPress: () => console.log('Ok pressed'),
-              },
-            ])
-          }
-        />
-      </View>
-      <Greet name="Vansh Sharma"/>
-      <Greet name="Himanshu Sharma"/>
+    <View style={styles.padding20} >
+      <StylingRN/>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-  },
+  padding20: {
+    padding:60
+  }
 })
