@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
 
+const windowWidth = Dimensions.get('window').width
+const windowHeight = Dimensions.get('window').height
 export default function StylingRN() {
   return (
     <View>
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     marginHorizontal: 20,
     padding: 20,
-    width: ' 90%',
+    width: windowWidth > 600 ? '60%' : '90%',
     textAlign: 'center',
   },
   border: {
