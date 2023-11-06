@@ -1,9 +1,21 @@
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  useWindowDimensions,
+} from 'react-native'
 import React from 'react'
 
-const windowWidth = Dimensions.get('window').width
-const windowHeight = Dimensions.get('window').height
+// const windowWidth = Dimensions.get('window').width
+// const windowHeight = Dimensions.get('window').height
+
+// Use useWindowDimensions instead of Dimensions.get('window').
+
 export default function StylingRN() {
+  const windowWidth = useWindowDimensions().width
+  const windowHeight = useWindowDimensions().height;
+  console.log('😇 L-18 in StylingRN.js=> ', windowHeight, windowWidth);
   return (
     <View>
       <View>
@@ -20,7 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     marginHorizontal: 20,
     padding: 20,
-    width: windowWidth > 600 ? '60%' : '90%',
+    width: '90%',
     textAlign: 'center',
   },
   border: {
