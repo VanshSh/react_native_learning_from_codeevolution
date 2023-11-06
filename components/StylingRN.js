@@ -5,6 +5,7 @@ import {
   Dimensions,
   useWindowDimensions,
   SafeAreaView,
+  Platform,
 } from 'react-native'
 import React from 'react'
 
@@ -16,9 +17,9 @@ export default function StylingRN() {
   const windowHeight = useWindowDimensions().height
   console.log('😇 L-18 in StylingRN.js=> ', windowHeight, windowWidth)
   return (
-    <SafeAreaView style={{
-      backgroundColor:"red"
-    }}>
+    <SafeAreaView
+
+    >
       <View>
         <View>
           <Text style={[styles.border, styles.container]}>
@@ -32,14 +33,21 @@ export default function StylingRN() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
+    backgroundColor: 'green',
     marginHorizontal: 20,
-    padding: 20,
+    padding: Platform.OS === 'android' ? 50 : 0,
     width: '90%',
     textAlign: 'center',
   },
   border: {
     borderRadius: 10,
-    color: 'yellow',
+    ...Platform.select({
+      ios: {
+        color: 'white',
+      },
+      android: {
+        color: 'yellow',
+      },
+    }),
   },
 })
