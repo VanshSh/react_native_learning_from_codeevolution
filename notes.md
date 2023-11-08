@@ -55,5 +55,8 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 />
 
-
 ```
+- ItemSeperatorComponent is used to seperate items
+- ListEmptyComponent is used to show the element when the list is empty
+- ListHeaderComponent to show data on the to of the list
+- ListFooterComponent to show data on the footer of the list
