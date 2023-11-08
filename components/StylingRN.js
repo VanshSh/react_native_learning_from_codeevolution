@@ -23,7 +23,7 @@ export default function StylingRN() {
       <View>
         <View>
           <Text style={[styles.border, styles.container]}>
-            Styling in React native
+            Styling in React Native
           </Text>
         </View>
       </View>
