@@ -96,3 +96,9 @@ keyExtractor = {(item,index)=> item.id.toString()}
 ```
 
 - If you want to seperate the list on the basis of subcategories then use SectionList 
+
+
+## Video 58
+
+- TextInput is used to take the value from the username or any kind of data
+- 
