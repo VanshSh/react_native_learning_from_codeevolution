@@ -83,13 +83,20 @@ const LoginForm = () => {
       <TextInput
         style={styles.input}
         value={username}
-              onChangeText={setUsername}
-              //   secureTextEntry
-              placeholder='Write your name'
-              keyboardType='default'
-              autoCapitalize='none'
-              autoCorrect={false}
-
+        onChangeText={setUsername}
+        //   secureTextEntry
+        placeholder='Write your name'
+        keyboardType='default'
+        autoCapitalize='none'
+        autoCorrect={false}
+      />
+      <TextInput
+        style={[styles.multiLineText, styles.input]}
+        placeholder='Write your message'
+        keyboardType='default'
+        autoCapitalize='none'
+        autoCorrect={false}
+        multiline
       />
       <Text style={styles.text}>My name is {username}</Text>
     </SafeAreaView>
@@ -131,6 +138,10 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     marginBottom: 10,
+  },
+  multiLineText: {
+    minHeight: 100,
+    textAlignVertical: 'top',
   },
 })
 

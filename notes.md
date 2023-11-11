@@ -119,3 +119,33 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 
 - TextInput is used to take the value from the username or any kind of data
+  
+## Video 59 myltiLine
+
+```
+    <TextInput
+        style={[styles.multiLineText, styles.input]}
+        placeholder='Write your message'
+        keyboardType='default'
+        autoCapitalize='none'
+        autoCorrect={false}
+      />
+```
+
+- Jusst add `multiline` as the prop for the TextInput
+
+- 
+```
+
+    <TextInput
+        style={[styles.multiLineText, styles.input]}
+        placeholder='Write your message'
+        keyboardType='default'
+        autoCapitalize='none'
+        autoCorrect={false}
+        multiline
+      />
+
+```
+
+- Used as the textarea of the web
