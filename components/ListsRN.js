@@ -8,12 +8,12 @@ import {
   SectionList,
 } from 'react-native'
 import pokemonList from '../data.json'
-//   import groupedPokemonList from "./grouped-data.json";
+import groupedPokemonList from '../grouped-data.json'
 
 export default function ListsRN() {
   return (
     <SafeAreaView styles={styles.container}>
-      <FlatList
+      {/* <FlatList
         data={pokemonList}
         renderItem={({ item }) => {
           return (
@@ -37,6 +37,35 @@ export default function ListsRN() {
         }
         ListFooterComponent={<Text style={styles.footerText}>End of list</Text>}
         // horizontal={true}
+      /> */}
+      <SectionList
+        sections={groupedPokemonList}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.card}>
+              <Text style={styles.cardText}>{item}</Text>
+            </View>
+          )
+        }}
+        renderSectionHeader={({ section }) => {
+          return <Text style={styles.sectionHeaderText}>{section.type}</Text>
+        }}
+        ItemSeparatorComponent={() => (
+          <View
+            style={{
+              height: 12,
+              backgroundColor:"red"
+            }}
+          />
+        )}
+        SectionSeparatorComponent={() => (
+          <View
+            style={{
+              height: 12,
+              backgroundColor:"yellow"
+            }}
+          />
+        )}
       />
     </SafeAreaView>
   )

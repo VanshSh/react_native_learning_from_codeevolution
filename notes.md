@@ -60,3 +60,39 @@ keyExtractor = {(item,index)=> item.id.toString()}
 - ListEmptyComponent is used to show the element when the list is empty
 - ListHeaderComponent to show data on the to of the list
 - ListFooterComponent to show data on the footer of the list
+  
+
+## Video 53 SectionList
+```
+   <SectionList
+        sections={groupedPokemonList}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.card}>
+              <Text style={styles.cardText}>{item}</Text>
+            </View>
+          )
+        }}
+        renderSectionHeader={({ section }) => {
+          return <Text style={styles.sectionHeaderText}>{section.type}</Text>
+        }}
+        ItemSeparatorComponent={() => (
+          <View
+            style={{
+              height: 12,
+              backgroundColor:"red"
+            }}
+          />
+        )}
+        SectionSeparatorComponent={() => (
+          <View
+            style={{
+              height: 12,
+              backgroundColor:"yellow"
+            }}
+          />
+        )}
+      />
+```
+
+- If you want to seperate the list on the basis of subcategories then use SectionList 
