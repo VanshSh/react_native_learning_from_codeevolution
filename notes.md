@@ -100,5 +100,22 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 ## Video 58
 
-- TextInput is used to take the value from the username or any kind of data
 - 
+
+``` 
+<TextInput
+        style={styles.input}
+        value={username}
+              onChangeText={setUsername}
+              //   secureTextEntry
+              placeholder='Write your name'
+              keyboardType='default'
+              autoCapitalize='none'
+              autoCorrect={false}
+
+      />
+  
+  ```
+
+
+- TextInput is used to take the value from the username or any kind of data

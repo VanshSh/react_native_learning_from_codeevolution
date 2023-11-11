@@ -83,7 +83,13 @@ const LoginForm = () => {
       <TextInput
         style={styles.input}
         value={username}
-        onChangeText={setUsername}
+              onChangeText={setUsername}
+              //   secureTextEntry
+              placeholder='Write your name'
+              keyboardType='default'
+              autoCapitalize='none'
+              autoCorrect={false}
+
       />
       <Text style={styles.text}>My name is {username}</Text>
     </SafeAreaView>
