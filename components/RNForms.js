@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { StatusBar } from 'expo-status-bar'
+import React, { useState } from 'react'
 import {
   View,
   TextInput,
@@ -8,32 +9,33 @@ import {
   Text,
   Image,
   Platform,
-} from "react-native";
+  SafeAreaView,
+} from 'react-native'
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [username, setUsername] = useState('')
+  //   const [password, setPassword] = useState('')
+  //   const [errors, setErrors] = useState({})
 
-  const validateForm = () => {
-    let errors = {};
+  //   const validateForm = () => {
+  //     let errors = {}
 
-    if (!username) errors.username = "Username is required";
-    if (!password) errors.password = "Password is required";
+  //     if (!username) errors.username = 'Username is required'
+  //     if (!password) errors.password = 'Password is required'
 
-    setErrors(errors);
+  //     setErrors(errors)
 
-    return Object.keys(errors).length === 0;
-  };
+  //     return Object.keys(errors).length === 0
+  //   }
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      console.log("Submitted", username, password);
-      setUsername("");
-      setPassword("");
-      setErrors({});
-    }
-  };
+  //   const handleSubmit = () => {
+  //     if (validateForm()) {
+  //       console.log('Submitted', username, password)
+  //       setUsername('')
+  //       setPassword('')
+  //       setErrors({})
+  //     }
+  //   }
 
   return (
     // <KeyboardAvoidingView
@@ -76,23 +78,29 @@ const LoginForm = () => {
 
     //     <Button title="Login" onPress={handleSubmit} />
     //   </View>
-      // </KeyboardAvoidingView>
-      <Text>HELLO</Text>
-  );
-};
+    // </KeyboardAvoidingView>
+    <SafeAreaView style={styles.container}>
+      <TextInput
+        style={styles.input}
+        value={username}
+        onChangeText={setUsername}
+      />
+      <Text style={styles.text}>My name is {username}</Text>
+    </SafeAreaView>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    backgroundColor: "#f5f5f5",
+    // flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: StatusBar.currentHeight,
   },
   form: {
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     padding: 20,
     borderRadius: 10,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -104,20 +112,20 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 5,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   input: {
     height: 40,
-    borderColor: "#ddd",
+    borderColor: 'red',
     borderWidth: 1,
     marginBottom: 15,
     padding: 10,
     borderRadius: 5,
   },
   errorText: {
-    color: "red",
+    color: 'red',
     marginBottom: 10,
   },
-});
+})
 
-export default LoginForm;
+export default LoginForm
