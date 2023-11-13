@@ -79,9 +79,9 @@ const LoginForm = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: 'yellow',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    padding:20
   },
   form: {
     backgroundColor: '#ffffff',

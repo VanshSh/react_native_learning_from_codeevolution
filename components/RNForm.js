@@ -33,54 +33,52 @@ const LoginForm = () => {
     }
   }
   return (
-    <SafeAreaView>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : null}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
-        style={styles.container}
-      >
-        <View style={styles.form}>
-          {/* <Image
-            source={require('../assets/adaptive-icon.png')}
-            style={styles.image}
-          /> */}
-          <Text style={styles.label}>Name</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='Enter your name...'
-            value={userName}
-            onChangeText={setUserName}
-          />
-          {errors.userName ? (
-            <Text style={styles.errorText}>{errors.userName}</Text>
-          ) : null}
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='Enter your password..'
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
-          {errors.password ? (
-            <Text style={styles.errorText}>{errors.password}</Text>
-          ) : null}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 50}
+      style={styles.container}
+    >
+      <View style={styles.form}>
+        <Image
+          source={require('../assets/adaptive-icon.png')}
+          style={styles.image}
+        />
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Enter your name...'
+          value={userName}
+          onChangeText={setUserName}
+        />
+        {errors.userName ? (
+          <Text style={styles.errorText}>{errors.userName}</Text>
+        ) : null}
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Enter your password..'
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+        {errors.password ? (
+          <Text style={styles.errorText}>{errors.password}</Text>
+        ) : null}
 
-          <Button title='Login' onPress={handleFormSubmit} />
-        </View>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+        <Button title='Login' onPress={handleFormSubmit} />
+      </View>
+    </KeyboardAvoidingView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    //   flex: 1,
+    flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 30,
     backgroundColor: 'red',
     borderRadius: 10,
-    //   justifyContent: 'center', // Adjust this based on your layout needs
+    justifyContent: 'center', // Adjust this based on your layout needs
   },
   form: {
     backgroundColor: '#ffffff',

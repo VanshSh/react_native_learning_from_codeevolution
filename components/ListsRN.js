@@ -11,6 +11,7 @@ import pokemonList from '../data.json'
 import groupedPokemonList from '../grouped-data.json'
 
 export default function ListsRN() {
+  console.log('😇 L-14 in ListsRN.js=> ', StatusBar.currentHeight);
   return (
     <SafeAreaView styles={styles.container}>
       {/* <FlatList
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     padding: 16,
     borderRadius: 8,
-    // marginBottom: 16,
+    marginBottom: 16,
     borderWidth: 1,
   },
   cardText: {

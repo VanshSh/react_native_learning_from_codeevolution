@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFE3BB',
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: StatusBar.currentHeight ,
   },
   loadingContainer: {
     flex: 1,

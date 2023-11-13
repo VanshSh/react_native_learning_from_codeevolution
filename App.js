@@ -7,12 +7,12 @@ import RNNetworking from './components/RNNetworking'
 
 export default function App() {
   return (
-    // <>
-    //   {/* <StylingRN/> */}
-    //   {/* <ListsRN /> */}
-    //   {/* <RNFormsComponents /> */}
-    //   {/* <RNForm/> */}
-    // </>
-    <RNNetworking />
+    <>
+      {/* <ListsRN /> */}
+      {/* <StylingRN/> */}
+      {/* <RNFormsComponents /> */}
+      {/* <RNForm/> */}
+      <RNNetworking />
+    </>
   )
 }
