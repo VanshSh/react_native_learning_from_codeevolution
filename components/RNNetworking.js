@@ -15,6 +15,10 @@ const RNNetworking = () => {
   const [postList, setPostList] = useState([])
   const [isLoading, setisLoading] = useState(true)
   const [refreshing, setrefreshing] = useState(false)
+  const [postTitle, setpostTitle] = useState('')
+  const [postBody, setpostBody] = useState('')
+  const [isPosting, setisPosting] = useState(false)
+
   const fetchData = async (limit = 10) => {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
@@ -34,6 +38,25 @@ const RNNetworking = () => {
     setrefreshing((prev) => !prev)
   }
 
+  const addPost = async () => {
+    setisPosting((prev) => !prev)
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({
+        title: postTitle,
+        body: postBody,
+        userId: Date.now(),
+        id:Date.now()
+      }),
+    })
+    const newPost = await response.json()
+    setPostList([newPost, ...postList])
+    setisPosting((prev) => !prev)
+  }
+
   if (isLoading) {
     return (
       <SafeAreaView style={styles.loadingContainer}>
@@ -44,28 +67,53 @@ const RNNetworking = () => {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.listContainer}>
-        <FlatList
-          data={postList}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.card}>
-                <Text style={styles.titleText}>{ item.id}: {item.title}</Text>
-                <Text style={styles.bodyText}>{item.body}</Text>
-              </View>
-            )
-          }}
-          keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
-          ListEmptyComponent={<Text>No Posts Found</Text>}
-          ListHeaderComponent={<Text style={styles.headerText}>Post List</Text>}
-          ListFooterComponent={
-            <Text style={styles.footerText}>End of list</Text>
-          }
-          refreshing={refreshing}
-          onRefresh={handleRefresh}
-        />
-      </View>
+      <>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder='Post title..'
+            value={postTitle}
+            onChangeText={setpostTitle}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder='Post body..'
+            value={postBody}
+            onChangeText={setpostBody}
+          />
+          <Button
+            title={isPosting ? 'Adding..' : 'Add Post'}
+            onPress={addPost}
+            disabled={isPosting}
+          />
+        </View>
+        <View style={styles.listContainer}>
+          <FlatList
+            data={postList}
+            renderItem={({ item }) => {
+              return (
+                <View style={styles.card}>
+                  <Text style={styles.titleText}>
+                    {item.id}: {item.title}
+                  </Text>
+                  <Text style={styles.bodyText}>{item.body}</Text>
+                </View>
+              )
+            }}
+            keyExtractor={(item) => item.id.toString()}
+            ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+            ListEmptyComponent={<Text>No Posts Found</Text>}
+            ListHeaderComponent={
+              <Text style={styles.headerText}>Post List</Text>
+            }
+            ListFooterComponent={
+              <Text style={styles.footerText}>End of list</Text>
+            }
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
+          />
+        </View>
+      </>
     </SafeAreaView>
   )
 }
@@ -119,7 +167,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   inputContainer: {
-    backgroundColor: '#860A35',
+    backgroundColor: '#F1EAFF',
     padding: 16,
     borderRadius: 8,
     borderWidth: 1,
