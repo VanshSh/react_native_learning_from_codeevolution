@@ -7,18 +7,8 @@ import RNNetworking from './components/RNNetworking'
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.padding20}>
-      {/* <StylingRN/> */}
-      {/* <ListsRN /> */}
-      {/* <RNFormsComponents /> */}
-      {/* <RNForm/> */}
+    <>
       <RNNetworking />
-    </SafeAreaView>
+    </>
   )
 }
-
-const styles = StyleSheet.create({
-  padding20: {
-    padding: 60,
-  },
-})
