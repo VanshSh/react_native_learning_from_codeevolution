@@ -98,9 +98,7 @@ keyExtractor = {(item,index)=> item.id.toString()}
 - If you want to seperate the list on the basis of subcategories then use SectionList 
 
 
-## Video 58
-
-- 
+## Video 58 TextInput
 
 ``` 
 <TextInput
@@ -120,7 +118,7 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 - TextInput is used to take the value from the username or any kind of data
   
-## Video 59 myltiLine
+## Video 59 multiLine
 
 ```
     <TextInput
@@ -133,8 +131,7 @@ keyExtractor = {(item,index)=> item.id.toString()}
 ```
 
 - Jusst add `multiline` as the prop for the TextInput
-
-- 
+ 
 ```
 
     <TextInput
@@ -149,3 +146,17 @@ keyExtractor = {(item,index)=> item.id.toString()}
 ```
 
 - Used as the textarea of the web
+
+## Video 61 Swicth
+
+```
+  <Switch
+          value={isDarkMode}
+          onValueChange={toggleSwitch}
+          trackColor={{ false: 'red', true: 'green' }}
+          thumbColor={isDarkMode ? 'yellow' : '#f4f3f4'}
+        />
+
+```  
+
+- Integrating toggle functionality in your app.

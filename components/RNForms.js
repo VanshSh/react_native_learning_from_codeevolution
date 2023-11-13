@@ -10,10 +10,14 @@ import {
   Image,
   Platform,
   SafeAreaView,
+  Switch,
 } from 'react-native'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  const toggleSwitch = () => setIsDarkMode((previousState) => !previousState)
+
   //   const [password, setPassword] = useState('')
   //   const [errors, setErrors] = useState({})
 
@@ -37,48 +41,8 @@ const LoginForm = () => {
   //     }
   //   }
 
+  console.log('😇 L-44 in RNForms.js=> ', isDarkMode)
   return (
-    // <KeyboardAvoidingView
-    //   behavior="padding"
-    //   keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
-    //   style={styles.container}
-    // >
-    //   <View style={styles.form}>
-    //     <Image
-    //       source={require("./assets/adaptive-icon.png")}
-    //       style={{
-    //         width: 200,
-    //         height: 400,
-    //         alignSelf: "center",
-    //         marginBottom: 50,
-    //       }}
-    //     />
-    //     <Text style={styles.label}>Username</Text>
-    //     <TextInput
-    //       style={styles.input}
-    //       placeholder="Enter your username"
-    //       value={username}
-    //       onChangeText={setUsername}
-    //     />
-    //     {errors.username ? (
-    //       <Text style={styles.errorText}>{errors.username}</Text>
-    //     ) : null}
-
-    //     <Text style={styles.label}>Password</Text>
-    //     <TextInput
-    //       style={styles.input}
-    //       placeholder="Enter your password"
-    //       value={password}
-    //       onChangeText={setPassword}
-    //       secureTextEntry
-    //     />
-    //     {errors.password ? (
-    //       <Text style={styles.errorText}>{errors.password}</Text>
-    //     ) : null}
-
-    //     <Button title="Login" onPress={handleSubmit} />
-    //   </View>
-    // </KeyboardAvoidingView>
     <SafeAreaView style={styles.container}>
       <TextInput
         style={styles.input}
@@ -92,6 +56,7 @@ const LoginForm = () => {
       />
       <TextInput
         style={[styles.multiLineText, styles.input]}
+        // style={styles.input}
         placeholder='Write your message'
         keyboardType='default'
         autoCapitalize='none'
@@ -99,6 +64,15 @@ const LoginForm = () => {
         multiline
       />
       <Text style={styles.text}>My name is {username}</Text>
+      <View style={styles.switchContainer}>
+        <Text style={styles.text}>Dark Mode</Text>
+        <Switch
+          value={isDarkMode}
+          onValueChange={toggleSwitch}
+          trackColor={{ false: 'red', true: 'green' }}
+          thumbColor={isDarkMode ? 'yellow' : '#f4f3f4'}
+        />
+      </View>
     </SafeAreaView>
   )
 }
@@ -106,8 +80,8 @@ const LoginForm = () => {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: StatusBar.currentHeight,
+    backgroundColor: 'yellow',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   form: {
     backgroundColor: '#ffffff',
@@ -140,8 +114,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   multiLineText: {
-    minHeight: 100,
+     flexGrow:1.5,// Adjust this value based on your layout needs
     textAlignVertical: 'top',
+  },
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
   },
 })
 
