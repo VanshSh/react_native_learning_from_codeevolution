@@ -14,6 +14,7 @@ import {
 const RNNetworking = () => {
   const [postList, setPostList] = useState([])
   const [isLoading, setisLoading] = useState(true)
+  const [refreshing, setrefreshing] = useState(false)
   const fetchData = async (limit = 10) => {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
@@ -26,6 +27,12 @@ const RNNetworking = () => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  const handleRefresh = () => {
+    setrefreshing((prev) => !prev)
+    fetchData(20)
+    setrefreshing((prev) => !prev)
+  }
 
   if (isLoading) {
     return (
@@ -43,7 +50,7 @@ const RNNetworking = () => {
           renderItem={({ item }) => {
             return (
               <View style={styles.card}>
-                <Text style={styles.titleText}>{item.title}</Text>
+                <Text style={styles.titleText}>{ item.id}: {item.title}</Text>
                 <Text style={styles.bodyText}>{item.body}</Text>
               </View>
             )
@@ -55,6 +62,8 @@ const RNNetworking = () => {
           ListFooterComponent={
             <Text style={styles.footerText}>End of list</Text>
           }
+          refreshing={refreshing}
+          onRefresh={handleRefresh}
         />
       </View>
     </SafeAreaView>

@@ -179,4 +179,34 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 ## Video 66 Networking
 
-- 
+- Refreshing
+
+```
+
+  const handleRefresh = () => {
+    setrefreshing((prev) => !prev)
+    fetchData(20)
+    setrefreshing((prev) => !prev)
+  }
+
+     <FlatList
+          data={postList}
+          renderItem={({ item }) => {
+            return (
+              <View style={styles.card}>
+                <Text style={styles.titleText}>{ item.id}: {item.title}</Text>
+                <Text style={styles.bodyText}>{item.body}</Text>
+              </View>
+            )
+          }}
+          keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+          ListEmptyComponent={<Text>No Posts Found</Text>}
+          ListHeaderComponent={<Text style={styles.headerText}>Post List</Text>}
+          ListFooterComponent={
+            <Text style={styles.footerText}>End of list</Text>
+          }
+          refreshing={refreshing}
+          onRefresh={handleRefresh}
+        />
+```
