@@ -147,7 +147,7 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 - Used as the textarea of the web
 
-## Video 61 Swicth
+## Video 61 Switch
 
 ```
   <Switch
