@@ -164,6 +164,13 @@ keyExtractor = {(item,index)=> item.id.toString()}
 ## Video 62 Forms
 
 ```
+ <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
+        style={styles.container}
+      >
+      <!-- CODE... -->
+      </KeyboardAvoidigView>
 
 ```
 
