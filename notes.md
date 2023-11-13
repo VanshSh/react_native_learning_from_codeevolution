@@ -160,3 +160,12 @@ keyExtractor = {(item,index)=> item.id.toString()}
 ```  
 
 - Integrating toggle functionality in your app.
+
+## Video 62 Forms
+
+```
+
+```
+
+- Use `KeyboardAvoidingView` for handling the keyboard interaction.
+- 
