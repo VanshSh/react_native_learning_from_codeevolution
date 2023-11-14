@@ -210,3 +210,31 @@ keyExtractor = {(item,index)=> item.id.toString()}
           onRefresh={handleRefresh}
         />
 ```
+
+## Video 72 React Native Navigation using (React Navigation)
+
+- Read more here : https://reactnavigation.org/docs/getting-started
+
+- Stack Navigation
+  - Here screens work likes the deck of the cards.
+  - Two Navigatiors:
+    - Stack Navigator
+      - It is JS Based Navigation and provides high degree of customisation but comes at the cost of the performance.
+    - Native Stack Navigator
+      - It is based on the native navigation and provides better performance and animations but with limited customization.
+  - Native Stack Navigator
+    - Install:  `npm install @react-navigation/stack`
+    - App.js :
+   
+       ```
+       import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+        const Stack = createStackNavigator()
+       
+       <Stack.Navigator initialRouteName='About'>
+        <Stack.Screen name='Home' component={HomeScreen} />
+        <Stack.Screen name='About' component={AboutScreen} />
+      </Stack.Navigator>
+      
+      ```
+    - 
