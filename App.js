@@ -49,6 +49,9 @@ export default function App() {
           initialParams={{
             name: 'Guest login',
           }}
+          // options={({ route }) => ({
+          //   title: route.params.name,
+          // })}
         />
       </Stack.Navigator>
     </NavigationContainer>
