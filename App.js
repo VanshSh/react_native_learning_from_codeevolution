@@ -1,59 +1,21 @@
+import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import HomeScreen from './screens/HomeScreen'
-import AboutScreen from './screens/AboutScreen'
-import { Pressable, Text } from 'react-native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { View, Text } from 'react-native'
+import React from 'react'
+import DashboardScreen from './screens/DashboardScreen'
+import SettingsScreen from './screens/SettingsScreee'
 
-export default function App() {
-  const Stack = createStackNavigator()
+const App = () => {
+  const Drawer = createDrawerNavigator()
   return (
     <NavigationContainer>
-      {/* <ListsRN /> */}
-      {/* <StylingRN/> */}
-      {/* <RNFormsComponents /> */}
-      {/* <RNForm/> */}
-      {/* <RNNetworking /> */}
-      <Stack.Navigator
-        initialRouteName='Home'
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#E5D4FF',
-          },
-          headerTintColor: '#363062',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          headerRight: () => (
-            <Pressable onPress={() => alert('Menu Pressed')}>
-              <Text>Menu</Text>
-            </Pressable>
-          ),
-          contentStyle: {
-            backgroundColor: '#192655',
-          },
-        }}
-      >
-        <Stack.Screen
-          name='Home'
-          component={HomeScreen}
-          initialParams={{
-            result: 'Guest ',
-          }}
-          options={{
-            title: 'Welcome Home',
-          }}
-        />
-        <Stack.Screen
-          name='About'
-          component={AboutScreen}
-          initialParams={{
-            name: 'Guest login',
-          }}
-          // options={({ route }) => ({
-          //   title: route.params.name,
-          // })}
-        />
-      </Stack.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name='Dashboard' component={DashboardScreen} />
+        <Drawer.Screen name='Settings' component={SettingsScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   )
 }
+
+export default App

@@ -215,7 +215,7 @@ keyExtractor = {(item,index)=> item.id.toString()}
 
 - Read more here : https://reactnavigation.org/docs/getting-started
 
-- Stack Navigation
+- Stack Navigation (AppStack.js)
   - Here screens work likes the deck of the cards.
   - Two Navigatiors:
     - Stack Navigator
@@ -315,3 +315,8 @@ keyExtractor = {(item,index)=> item.id.toString()}
       </Stack.Navigator>
     </NavigationContainer>
     ```
+
+## Video 78 Drawer Navigation
+
+- Read more here: https://reactnavigation.org/docs/drawer-navigator
+- 
