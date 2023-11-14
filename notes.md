@@ -237,4 +237,8 @@ keyExtractor = {(item,index)=> item.id.toString()}
       </Stack.Navigator>
       
       ```
-    - 
+    - `  // const navigation = useNavigation()` can be used with any component not specific to the screen components.
+    - For all screen components, use {navigation} props
+    ```
+    <Button title="Back to Home" onPress={()=>navigation.navigate("Home")}/>
+    ```

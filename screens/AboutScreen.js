@@ -5,6 +5,7 @@ export default function AboutScreen({ navigation, route }) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>About Screen</Text>
+      <Button title="Back to Home" onPress={()=>navigation.navigate("Home")}/>
     </View>
   )
 }
