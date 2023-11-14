@@ -242,3 +242,28 @@ keyExtractor = {(item,index)=> item.id.toString()}
     ```
     <Button title="Back to Home" onPress={()=>navigation.navigate("Home")}/>
     ```
+    - Passing values between screens
+      
+      ```  
+      <Button
+        title='Go to About'
+        onPress={() =>
+          navigation.navigate('About', {
+            name: 'Vansh Sharma',
+          })
+        }
+      />
+
+      OR
+
+        <Stack.Screen
+          name='About'
+          component={AboutScreen}
+          initialParams={{
+            name: 'Guest login',
+          }}
+        />
+
+      const { name } = route.params
+
+      ```

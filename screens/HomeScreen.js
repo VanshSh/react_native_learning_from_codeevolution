@@ -4,10 +4,15 @@ import { useNavigation } from '@react-navigation/native'
 
 export default function HomeScreen({ navigation, route }) {
   // const navigation = useNavigation()
+  const {result}  = route.params
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Button title='Go to About' onPress={()=>navigation.navigate("About")}/>
+      <Text style={styles.text}>Home Screen for {result}</Text>
+      <Button
+        title='Go to About'
+        onPress={() => navigation.navigate('About')}
+      />
     </View>
   )
 }

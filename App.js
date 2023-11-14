@@ -13,8 +13,20 @@ export default function App() {
       {/* <RNForm/> */}
       {/* <RNNetworking /> */}
       <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name='Home' component={HomeScreen} />
-        <Stack.Screen name='About' component={AboutScreen} />
+        <Stack.Screen
+          name='Home'
+          component={HomeScreen}
+          initialParams={{
+            result: 'Guest ',
+          }}
+        />
+        <Stack.Screen
+          name='About'
+          component={AboutScreen}
+          initialParams={{
+            name: 'Guest login',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
