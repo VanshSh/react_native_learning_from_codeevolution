@@ -375,3 +375,7 @@ export default App
 
 
 ```
+
+## Video 82 Nesting Navigation
+- Allows you to use the power of different type of navigation.
+- 
